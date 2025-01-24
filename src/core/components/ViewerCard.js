@@ -1,8 +1,8 @@
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import Avatar from '@material-ui/core/Avatar';
 import Paper from '@material-ui/core/Paper';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { useEffect, useState } from 'react';
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import OutputViewer from './OutputViewer';
 import SourceViewer from './SourceViewer';
 function ViewerCard(props) {
@@ -11,7 +11,7 @@ function ViewerCard(props) {
     useEffect(function () {
         setSourcePlayback(undefined);
     }, [props.sourceConfig]);
-    return (_jsxs(Paper, { className: classes.root, children: [_jsx(SourceViewer, { sourceConfig: props.sourceConfig, onLoad: setSourcePlayback }), sourcePlayback && props.bodyPix && props.tflite ? (_jsx(OutputViewer, { sourcePlayback: sourcePlayback, backgroundConfig: props.backgroundConfig, segmentationConfig: props.segmentationConfig, postProcessingConfig: props.postProcessingConfig, bodyPix: props.bodyPix, tflite: props.tflite })) : (_jsx("div", { className: classes.noOutput, children: _jsx(Avatar, { className: classes.avatar }) }))] }));
+    return (_jsxs(Paper, { className: classes.root, children: [_jsx(SourceViewer, { sourceConfig: props.sourceConfig, onLoad: setSourcePlayback, style: { width: '0px' } }), sourcePlayback && props.bodyPix && props.tflite ? (_jsx(OutputViewer, { sourcePlayback: sourcePlayback, backgroundConfig: props.backgroundConfig, segmentationConfig: props.segmentationConfig, postProcessingConfig: props.postProcessingConfig, bodyPix: props.bodyPix, tflite: props.tflite })) : (_jsx("div", { className: classes.noOutput, children: _jsx(Avatar, { className: classes.avatar }) }))] }));
 }
 var useStyles = makeStyles(function (theme) {
     var _a;

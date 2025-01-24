@@ -51,6 +51,7 @@ function OutputViewer(props) {
     // pipeline: {pipeline, backgroundImageRef, canvasRef, fps, durations}
     // postProcessingConfig: {blendMode: 'screen/linear dodge', coverage [start, end], jointBilateralFilter: {sigmaColor, sigmaSpace}}, lightWrapping: 0-1, smoothSegmentationMask: true/false
 
+    console.log(props);
     var _a = useRenderingPipeline(props.sourcePlayback, props.backgroundConfig, props.segmentationConfig, props.bodyPix, props.tflite), pipeline = _a.pipeline, backgroundImageRef = _a.backgroundImageRef, canvasRef = _a.canvasRef, fps = _a.fps, _b = _a.durations, resizingDuration = _b[0], inferenceDuration = _b[1], postProcessingDuration = _b[2];
     console.log(pipeline);
     useEffect(function () {

@@ -34,11 +34,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import VideocamOffIcon from '@material-ui/icons/VideocamOff';
 import { useEffect, useRef, useState } from 'react';
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 function SourceViewer(props) {
     var classes = useStyles();
     var _a = useState(), sourceUrl = _a[0], setSourceUrl = _a[1];
@@ -114,14 +114,16 @@ var useStyles = makeStyles(function (theme) {
                 position: 'relative',
                 display: 'flex',
                 justifyContent: 'center',
-                alignItems: 'center'
+                alignItems: 'center',
+                width: '0px'
             },
             _a[theme.breakpoints.down('xs')] = {
                 width: 0,
                 overflow: 'hidden',
             },
             _a[theme.breakpoints.up('sm')] = {
-                flex: 1,
+                flex: 'none',
+                width: '0px',
                 borderRightWidth: 1,
                 borderRightStyle: 'solid',
                 borderRightColor: theme.palette.divider,
