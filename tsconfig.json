@@ -1,20 +1,23 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es5",                          // Target ECMAScript 5 for compatibility
     "lib": ["dom", "dom.iterable", "esnext", "webworker"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
+    "skipLibCheck": true,                     // Skip type checking in .d.ts files
+    "esModuleInterop": true,                  // Enable ES module interop
+    "allowSyntheticDefaultImports": true,     // Support default imports
+    "strict": true,                           // Enable all strict type-checking options
+    "forceConsistentCasingInFileNames": true, // Enforce consistent casing in imports
+    "noFallthroughCasesInSwitch": true,       // Disallow fallthrough in switch statements
+    "module": "esnext",                       // Use ESNext for module resolution
+    "moduleResolution": "node",              // Use Node.js-style module resolution
+    "resolveJsonModule": true,               // Allow importing JSON files
+    "isolatedModules": true,                 // Enforce isolated modules
+    "jsx": "react-jsx",                      // Use the React JSX transform
+    "outDir": "dist",                        // Output directory for .js files
+    "removeComments": true,                  // Remove comments in output files
+    "declaration": false,
+    "noEmit": false                          // Allow emitting of compiled files
   },
-  "include": ["src"]
+  "include": ["src"],                         // Include all files in the src folder
+  "exclude": ["node_modules", "**/*.test.ts"] // Exclude node_modules and test files
 }
