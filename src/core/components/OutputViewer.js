@@ -34,15 +34,25 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import { useEffect } from 'react';
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import useRenderingPipeline from '../hooks/useRenderingPipeline';
 function OutputViewer(props) {
     var _this = this;
     var classes = useStyles();
+    // props passed in from parent:
+    // sourcePlayback: { video, videoWidth, videoHeight }
+    // backgroundConfig: {'image', url}
+    // segmentationConfig: {'wasmSimd', deferInputResizing, inputResolution (landscape: 144x256 or square: 256x256), 'meet', 'webgl2', targetFps}
+    // bodypix,
+    // tflite
+    // pipeline: {pipeline, backgroundImageRef, canvasRef, fps, durations}
+    // postProcessingConfig: {blendMode: 'screen/linear dodge', coverage [start, end], jointBilateralFilter: {sigmaColor, sigmaSpace}}, lightWrapping: 0-1, smoothSegmentationMask: true/false
+
     var _a = useRenderingPipeline(props.sourcePlayback, props.backgroundConfig, props.segmentationConfig, props.bodyPix, props.tflite), pipeline = _a.pipeline, backgroundImageRef = _a.backgroundImageRef, canvasRef = _a.canvasRef, fps = _a.fps, _b = _a.durations, resizingDuration = _b[0], inferenceDuration = _b[1], postProcessingDuration = _b[2];
+    console.log(pipeline);
     useEffect(function () {
         if (pipeline) {
             pipeline.updatePostProcessingConfig(props.postProcessingConfig);
