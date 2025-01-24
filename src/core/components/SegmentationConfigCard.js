@@ -9,7 +9,6 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import FormControl from '@material-ui/core/FormControl';
@@ -21,6 +20,7 @@ import { createStyles, makeStyles } from '@material-ui/core/styles';
 import Switch from '@material-ui/core/Switch';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
+import { Fragment as _Fragment, jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 function SegmentationConfigCard(props) {
     var classes = useStyles();
     function handleModelChange(event) {
@@ -51,7 +51,7 @@ function SegmentationConfigCard(props) {
                 }
                 break;
         }
-        props.onChange(__assign(__assign({}, props.config), { model: model, backend: backend, inputResolution: inputResolution, pipeline: pipeline }));
+        props.onChange(__assign(__assign({}, props.config), { model: 'meet', backend: backend, inputResolution: inputResolution, pipeline: 'webgl2' }));
     }
     function handleBackendChange(event) {
         props.onChange(__assign(__assign({}, props.config), { backend: event.target.value }));
