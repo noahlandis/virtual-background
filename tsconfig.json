@@ -13,7 +13,7 @@
     "resolveJsonModule": true,               // Allow importing JSON files
     "isolatedModules": true,                 // Enforce isolated modules
     "jsx": "react-jsx",                      // Use the React JSX transform
-    "outDir": "dist",                        // Output directory for .js files
+    "outDir": "src",                        // Output directory for .js files
     "removeComments": true,                  // Remove comments in output files
     "declaration": false,
     "noEmit": false                          // Allow emitting of compiled files

@@ -1,0 +1,10 @@
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import CssBaseline from '@material-ui/core/CssBaseline';
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import Viewer from './Viewer';
+var root = createRoot(document.getElementById('root'));
+root.render(_jsxs(React.StrictMode, { children: [_jsx(CssBaseline, {}), /\/viewer\/?$/.test(window.location.pathname) ? _jsx(Viewer, {}) : _jsx(App, {})] }));
+reportWebVitals();
