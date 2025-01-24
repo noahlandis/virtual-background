@@ -1,3 +1,7 @@
+import { useEffect, useRef, useState } from 'react';
+import { buildWebGL2Pipeline } from '../../pipelines/webgl2/webgl2Pipeline';
+import { createTimerWorker } from '../../shared/helpers/timerHelper';
+
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -8,7 +12,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g = Object.create((typeof Iterator === "function" ? Iterator : Object).prototype);
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g = Object.create(null);
     return g.next = verb(0), g["throw"] = verb(1), g["return"] = verb(2), typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
     function verb(n) { return function (v) { return step([n, v]); }; }
     function step(op) {
@@ -34,10 +38,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { useEffect, useRef, useState } from 'react';
-import { buildCanvas2dPipeline } from '../../pipelines/canvas2d/canvas2dPipeline';
-import { buildWebGL2Pipeline } from '../../pipelines/webgl2/webgl2Pipeline';
-import { createTimerWorker } from '../../shared/helpers/timerHelper';
+
 function useRenderingPipeline(sourcePlayback, backgroundConfig, segmentationConfig, bodyPix, tflite) {
     var _a = useState(null), pipeline = _a[0], setPipeline = _a[1];
     var backgroundImageRef = useRef(null);
@@ -53,9 +54,7 @@ function useRenderingPipeline(sourcePlayback, backgroundConfig, segmentationConf
         var frameDurations = [];
         var renderTimeoutId;
         var timerWorker = createTimerWorker();
-        var newPipeline = segmentationConfig.pipeline === 'webgl2'
-            ? buildWebGL2Pipeline(sourcePlayback, backgroundImageRef.current, backgroundConfig, segmentationConfig, canvasRef.current, tflite, timerWorker, addFrameEvent)
-            : buildCanvas2dPipeline(sourcePlayback, backgroundConfig, segmentationConfig, canvasRef.current, bodyPix, tflite, addFrameEvent);
+        var newPipeline = buildWebGL2Pipeline(sourcePlayback, backgroundImageRef.current, backgroundConfig, segmentationConfig, canvasRef.current, tflite, timerWorker, addFrameEvent)
         function render() {
             return __awaiter(this, void 0, void 0, function () {
                 var startTime;
